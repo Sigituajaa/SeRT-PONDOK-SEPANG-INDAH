@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SeRT - Sepang Indah</title>
+<meta name="theme-color" content="#185FA5" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== LOGIN ===== -->
+  <div id="view-login" class="view active">
+    <div class="login-box">
+      <div class="brand">
+        <span class="brand-icon"><i data-icon="home"></i></span>
+        <h1>SeRT &middot; Sepang Indah</h1>
+      </div>
+      <p class="muted">Masuk untuk mengakses layanan warga</p>
+
+      <label>Email</label>
+      <input type="email" id="login-email" placeholder="nama@email.com" />
+
+      <label>Kata sandi</label>
+      <input type="password" id="login-password" placeholder="Minimal 6 karakter" />
+
+      <p id="login-error" class="error-text"></p>
+
+      <button class="btn btn-primary" id="btn-login">Masuk</button>
+      <button class="btn btn-secondary" id="btn-register">Daftar akun baru</button>
+    </div>
+  </div>
+
+  <!-- ===== DASHBOARD ===== -->
+  <div id="view-dashboard" class="view">
+    <div class="app-shell">
+      <div class="topbar">
+        <div class="brand-mini">
+          <span class="brand-icon-sm"><i data-icon="home"></i></span>
+          <span>SeRT &middot; Sepang Indah</span>
+        </div>
+        <button class="icon-btn" id="btn-logout" aria-label="Keluar"><i data-icon="logout"></i></button>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-row">
+          <div class="avatar" id="profile-avatar">--</div>
+          <div class="profile-info">
+            <p class="profile-name" id="profile-name">Memuat...</p>
+            <p class="profile-block" id="profile-blok">-</p>
+          </div>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-green" id="profile-rt">RT --</span>
+          <span class="badge badge-green" id="profile-rw">RW --</span>
+        </div>
+      </div>
+
+      <p class="section-label">Menu utama</p>
+
+      <div class="menu-grid">
+        <button class="menu-tile" data-view="tagihan"><span class="menu-icon menu-icon-blue"><i data-icon="receipt"></i></span><span>Tagihan bulanan</span></button>
+        <button class="menu-tile" data-view="informasi"><span class="menu-icon menu-icon-green"><i data-icon="info"></i></span><span>Informasi</span></button>
+        <button class="menu-tile" data-view="surat"><span class="menu-icon menu-icon-green"><i data-icon="file"></i></span><span>Buat surat</span></button>
+        <button class="menu-tile" data-view="lapor"><span class="menu-icon menu-icon-blue"><i data-icon="alert"></i></span><span>Lapor</span></button>
+        <button class="menu-tile" data-view="cctv"><span class="menu-icon menu-icon-blue"><i data-icon="video"></i></span><span>CCTV</span></button>
+        <button class="menu-tile" data-view="kontak"><span class="menu-icon menu-icon-green"><i data-icon="phone"></i></span><span>Kontak darurat</span></button>
+        <button class="menu-tile" data-view="kas"><span class="menu-icon menu-icon-green"><i data-icon="wallet"></i></span><span>Kas warga</span></button>
+        <button class="menu-tile" data-view="pengeluaran"><span class="menu-icon menu-icon-blue"><i data-icon="report"></i></span><span>Rincian pengeluaran</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAGIHAN BULANAN ===== -->
+  <div id="view-tagihan" class="view">
+    <div class="app-shell">
+      <div class="page-header"><button class="back-btn" data-back><i data-icon="back"></i></button><span>Tagihan bulanan</span></div>
+      <div class="hero-card hero-blue">
+        <p class="hero-label">Tagihan bulan ini</p>
+        <p class="hero-value" id="tagihan-total">Rp 0</p>
+        <p class="hero-sublabel">Detail</p>
+        <div class="detail-list" id="tagihan-detail"></div>
+        <div class="hero-footer">
+          <span class="hero-sublabel" id="tagihan-jatuhtempo">Jatuh tempo -</span>
+          <button class="btn-chip">Bayar</button>
+        </div>
+      </div>
+      <p class="section-label">Riwayat</p>
+      <div class="list" id="tagihan-riwayat"></div>
+    </div>
+  </div>
+
+  <!-- ===== INFORMASI ===== -->
+  <div id="view-informasi" class="view">
+    <div class="app-shell">
+      <div class="page-header"><button class="back-btn" data-back><i data-icon="back"></i></button><span>Informasi</span></div>
+      <div class="list" id="informasi-list"></div>
+    </div>
+  </div>
+
+  <!-- ===== BUAT SURAT ===== -->
+  <div id="view-surat" class="view">
+    <div class="app-shell">
+      <div class="page-header"><button class="back-btn" data-back><i data-icon="back"></i></button><span>Buat surat</span></div>
+      <form id="form-surat">
+        <label>Jenis surat</label>
+        <select id="surat-jenis">
+          <option>Surat pengantar KTP</option>
+          <option>Surat keterangan domisili</option>
+          <option>Surat keterangan usaha</option>
+          <option>Surat keterangan tidak mampu</option>
+        </select>
+        <label>Keperluan</label>
+        <textarea id="surat-keperluan" placeholder="Contoh: untuk pengurusan KTP baru"></textarea>
+        <p id="surat-error" class="error-text"></p>
+        <button type="submit" class="btn btn-primary">Ajukan surat</button>
+      </form>
+      <p class="section-label">Riwayat pengajuan</p>
+      <div class="list" id="surat-list"></div>
+    </div>
+  </div>
+
+  <!-- ===== LAPOR ===== -->
+  <div id="view-lapor" class="view">
+    <div class="app-shell">
+      <div class="page-header"><button class="back-btn" data-back><i data-icon="back"></i></button><span>Lapor</span></div>
+      <form id="form-lapor">
+        <label>Kategori</label>
+        <select id="lapor-kategori">
+          <option>Keamanan</option>
+          <option>Kebersihan</option>
+          <option>Fasilitas rusak</option>
+          <option>Gangguan lainnya</option>
+        </select>
+        <label>Lokasi</label>
+        <input type="text" id="lapor-lokasi" placeholder="Contoh: depan blok C2" />
+        <label>Deskripsi kejadian</label>
+        <textarea id="lapor-deskripsi" placeholder="Ceritakan apa yang terjadi"></textarea>
+        <p id="lapor-error" class="error-text"></p>
+        <button type="submit" class="btn btn-primary">Kirim laporan</button>
+      </form>
+      <p class="section-label">Laporan saya</p>
+      <div class="list" id="lapor-list"></div>
+    </div>
+  </div>
+
+  <!-- ===== CCTV ===== -->
+  <div id="view-cctv" class="view">
+    <div class="app-shell">
+      <div class="page-header"><button class="back-btn" data-back><i data-icon="back"></i></button><span>CCTV</span></div>
+      <div class="list" id="cctv-list"></div>
+    </div>
+  </div>
+
+  <!-- ===== KONTAK DARURAT ===== -->
+  <div id="view-kontak" class="view">
+    <div class="app-shell">
+      <div class="page-header"><button class="back-btn" data-back><i data-icon="back"></i></button><span>Kontak darurat</span></div>
+      <div class="list" id="kontak-list"></div>
+    </div>
+  </div>
+
+  <!-- ===== KAS WARGA ===== -->
+  <div id="view-kas" class="view">
+    <div class="app-shell">
+      <div class="page-header"><button class="back-btn" data-back><i data-icon="back"></i></button><span>Kas warga</span></div>
+      <div class="hero-card hero-green">
+        <p class="hero-label">Saldo kas RT</p>
+        <p class="hero-value" id="kas-saldo">Rp 0</p>
+        <div class="two-col">
+          <div class="mini-stat"><p class="muted-sm">Masuk bulan ini</p><p class="mini-value mini-value-green" id="kas-masuk">Rp 0</p></div>
+          <div class="mini-stat"><p class="muted-sm">Keluar bulan ini</p><p class="mini-value mini-value-red" id="kas-keluar">Rp 0</p></div>
+        </div>
+      </div>
+      <p class="section-label">Transaksi terbaru</p>
+      <div class="list" id="kas-list"></div>
+    </div>
+  </div>
+
+  <!-- ===== RINCIAN PENGELUARAN ===== -->
+  <div id="view-pengeluaran" class="view">
+    <div class="app-shell">
+      <div class="page-header"><button class="back-btn" data-back><i data-icon="back"></i></button><span>Rincian pengeluaran</span></div>
+      <div class="hero-card hero-blue">
+        <p class="hero-label">Total pengeluaran bulan ini</p>
+        <p class="hero-value" id="pengeluaran-total">Rp 0</p>
+      </div>
+      <p class="section-label">Daftar pengeluaran</p>
+      <div class="list" id="pengeluaran-list"></div>
+    </div>
+  </div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
