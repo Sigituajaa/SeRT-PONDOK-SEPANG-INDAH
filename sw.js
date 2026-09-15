@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sert-pondok-sepang-indah-v4';
+const CACHE_NAME = 'sert-pondok-sepang-indah-v5';
 const ASSETS = [
   './',
   'index.html',
