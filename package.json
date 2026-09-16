@@ -1,9 +1,0 @@
-{
-  "name": "sert-pondok-sepang-indah",
-  "version": "1.0.0",
-  "description": "Aplikasi warga SeRT - Pondok Sepang Indah, statis (HTML/CSS/JS) dengan Firebase sebagai backend",
-  "scripts": {
-    "start": "npx serve ."
-  },
-  "license": "MIT"
-}
